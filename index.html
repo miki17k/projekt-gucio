@@ -12,6 +12,7 @@ body{
     background:linear-gradient(135deg,#fff8ef,#fde7d2);
     color:#333;
 }
+
 .container{
     max-width:750px;
     margin:40px auto;
@@ -20,12 +21,14 @@ body{
     box-shadow:0 10px 30px rgba(0,0,0,.15);
     overflow:hidden;
 }
+
 .header{
     background:#b35c2e;
     color:#fff;
     text-align:center;
     padding:35px;
 }
+
 .photo{
     width:220px;
     height:220px;
@@ -34,26 +37,33 @@ body{
     object-fit:cover;
     margin-top:-50px;
     background:#eee;
+    cursor:pointer;
 }
+
 .content{
     padding:30px;
 }
+
 h2{
     color:#b35c2e;
 }
+
 table{
     width:100%;
     border-collapse:collapse;
     margin-top:15px;
 }
+
 td{
     padding:12px;
     border-bottom:1px solid #eee;
 }
+
 .label{
     font-weight:bold;
     width:40%;
 }
+
 .notice{
     margin-top:30px;
     background:#fff5d9;
@@ -61,19 +71,42 @@ td{
     padding:18px;
     border-radius:10px;
 }
+
 .footer{
     text-align:center;
     padding:25px;
     color:#777;
     font-size:14px;
 }
+
 .contact{
     background:#f7f7f7;
     padding:20px;
     border-radius:12px;
     margin-top:25px;
 }
+
+/* Powiększanie zdjęcia */
+#imageViewer{
+    display:none;
+    position:fixed;
+    z-index:999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.85);
+    justify-content:center;
+    align-items:center;
+}
+
+#imageViewer img{
+    max-width:95%;
+    max-height:95%;
+    border-radius:15px;
+}
 </style>
+
 </head>
 
 <body>
@@ -86,14 +119,23 @@ td{
 </div>
 
 <div style="text-align:center;">
-<img class="photo" src="IMG-20260710-WA0000.jpg" alt="Zdjęcie Gustawa">
+
+<img 
+class="photo" 
+src="IMG-20260710-WA0000.jpg" 
+alt="Zdjęcie Gustawa"
+onclick="openImage(this.src)"
+>
+
 </div>
+
 
 <div class="content">
 
 <h2>Dane psa</h2>
 
 <table>
+
 <tr>
 <td class="label">Imię</td>
 <td>Gustaw (Gucio)</td>
@@ -123,16 +165,22 @@ td{
 <td class="label">Znaki szczególne</td>
 <td>🤍 Biała łata w kształcie serca na łebku</td>
 </tr>
+
 </table>
 
+
 <div class="notice">
+
 <h2>Jeżeli mnie znalazłeś ❤️</h2>
 
-Proszę skontaktuj się z moim opiekunem.
+Proszę skontaktuj się z moim opiekunem.<br>
 Dziękuję za pomoc i opiekę.
+
 </div>
 
+
 <div class="contact">
+
 <h2>Dane właściciela</h2>
 
 <b>Imię:</b> Monika<br><br>
@@ -140,15 +188,41 @@ Dziękuję za pomoc i opiekę.
 <b>Telefon:</b> +48 507 683 917<br><br>
 
 <b>E-mail:</b> monikaradziwonka1@gmail.com
-</div>
 
 </div>
+
+
+</div>
+
 
 <div class="footer">
 © Profil Gustawa (Gucia) 🐾
 </div>
 
+
 </div>
+
+
+<!-- Duże zdjęcie po kliknięciu -->
+
+<div id="imageViewer" onclick="closeImage()">
+    <img id="bigImage">
+</div>
+
+
+<script>
+
+function openImage(src){
+    document.getElementById("bigImage").src = src;
+    document.getElementById("imageViewer").style.display = "flex";
+}
+
+function closeImage(){
+    document.getElementById("imageViewer").style.display = "none";
+}
+
+</script>
+
 
 </body>
 </html>
