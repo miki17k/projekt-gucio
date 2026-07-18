@@ -72,13 +72,6 @@ td{
     border-radius:10px;
 }
 
-.footer{
-    text-align:center;
-    padding:25px;
-    color:#777;
-    font-size:14px;
-}
-
 .contact{
     background:#f7f7f7;
     padding:20px;
@@ -86,7 +79,31 @@ td{
     margin-top:25px;
 }
 
-/* Powiększanie zdjęcia */
+.button{
+    display:inline-block;
+    margin-top:10px;
+    padding:12px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:bold;
+}
+
+.call{
+    background:#28a745;
+}
+
+.mail{
+    background:#0078D4;
+}
+
+.footer{
+    text-align:center;
+    padding:25px;
+    color:#777;
+    font-size:14px;
+}
+
 #imageViewer{
     display:none;
     position:fixed;
@@ -106,7 +123,6 @@ td{
     border-radius:15px;
 }
 </style>
-
 </head>
 
 <body>
@@ -119,16 +135,11 @@ td{
 </div>
 
 <div style="text-align:center;">
-
-<img 
-class="photo" 
-src="IMG-20260710-WA0000.jpg" 
+<img class="photo"
+src="IMG-20260710-WA0000.jpg"
 alt="Zdjęcie Gustawa"
-onclick="openImage(this.src)"
->
-
+onclick="openImage(this.src)">
 </div>
-
 
 <div class="content">
 
@@ -166,8 +177,12 @@ onclick="openImage(this.src)"
 <td>🤍 Biała łata w kształcie serca na łepku</td>
 </tr>
 
-</table>
+<tr>
+<td class="label">Numer czipa</td>
+<td>616093901625345</td>
+</tr>
 
+</table>
 
 <div class="notice">
 
@@ -177,41 +192,50 @@ Proszę skontaktuj się z moim opiekunem.<br>
 Dziękuję za pomoc i opiekę.
 
 </div>
-
-
 <div class="contact">
 
 <h2>Dane właściciela</h2>
 
-<b>Imię:</b> Monika<br><br>
+<b>Imię:</b> Monika
+<br><br>
 
-<b>Telefon:</b> +48 507 683 917<br><br>
+<b>Telefon:</b>
+<a href="tel:+48507683917">+48 507 683 917</a>
 
-<b>E-mail:</b> monikaradziwonka1@gmail.com
+<br><br>
+
+<a href="tel:+48507683917" class="button call">
+📞 Zadzwoń
+</a>
+
+<br><br>
+
+<b>E-mail:</b>
+<a href="mailto:monikaradziwonka1@gmail.com">
+monikaradziwonka1@gmail.com
+</a>
+
+<br><br>
+
+<a href="mailto:monikaradziwonka1@gmail.com" class="button mail">
+✉️ Wyślij e-mail
+</a>
 
 </div>
 
-
 </div>
-
 
 <div class="footer">
 © Profil Gustawa (Gucia) 🐾
 </div>
 
-
 </div>
-
-
-<!-- Duże zdjęcie po kliknięciu -->
 
 <div id="imageViewer" onclick="closeImage()">
-    <img id="bigImage">
+    <img id="bigImage" alt="Duże zdjęcie Gustawa">
 </div>
 
-
 <script>
-
 function openImage(src){
     document.getElementById("bigImage").src = src;
     document.getElementById("imageViewer").style.display = "flex";
@@ -220,9 +244,7 @@ function openImage(src){
 function closeImage(){
     document.getElementById("imageViewer").style.display = "none";
 }
-
 </script>
-
 
 </body>
 </html>
